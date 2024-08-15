@@ -5,24 +5,34 @@ using UnityEngine;
 
 public class movingScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    int spinSpeed=70;
+    // Rigidbody2D bileşenini tutmak için bir değişken
+    private Rigidbody2D rb;
+    
+    // Diğer değişkenler
+    int spinSpeed = 70;
     Vector3 anchorPoint;
     int spinDirection = 1;
+
     void Start()
     {
-
+        // Rigidbody2D bileşenine erişim
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Transform ile döndürme işlemi
         transform.RotateAround(anchorPoint, Vector3.forward, (spinSpeed * Time.deltaTime) * spinDirection);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (Input.GetKeyDown(KeyCode.Space)){
-                spinDirection *= -1 ;
+    private void OnTriggerStay2D(Collider2D collision) 
+    {
+        Debug.Log("sup");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Dönüş yönünü tersine çevir
+            spinDirection *= -1;
         }
     }
 }

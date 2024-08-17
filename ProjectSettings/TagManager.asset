@@ -6,6 +6,7 @@ TagManager:
   tags:
   - obstacles
   - addingObstacles
+  - countingObject
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: obstacle
     uniqueID: 271790025
+    locked: 0
+  - name: bomb
+    uniqueID: 2468350687
     locked: 0
   - name: movingObject
     uniqueID: 1208067283

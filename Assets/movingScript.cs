@@ -8,10 +8,11 @@ public class movingScript : MonoBehaviour
     // Rigidbody2D bileşenini tutmak için bir değişken
     private Rigidbody2D rb;
     // Diğer değişkenler
-    int spinSpeed = 70;
+    int spinSpeed = 35;
+    int objectDestroyed = 0;
+    int objectToDestroy = 5;
     Vector3 anchorPoint;
     int spinDirection = 1;
-    public bool flag;
     public DestroyScript deletingObstacles;
     public PositioningCircles addingObstacles;
     void Start()
@@ -35,13 +36,28 @@ public class movingScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            objectDestroyed++;
             deletingObstacles.DestroyObject();
             addingObstacles.AddObject();
             spinDirection *= -1;
-            //destroy komutu ver ve klonu kaldır. yeniden addobject fonksiyonunu çağır.
-            //ayrıca counter oluştur ve 3 kere addobject oluşturuluyorsa sonraki levela geçilsin.
+            SpeedOfMovingObject();
+            //5 kere addobject oluşturuluyorsa sonraki levela geçilsin.
         }else{
             //oyunu durdur ve baştan al.
         }
     }
+
+    private void SpeedOfMovingObject(){
+        if(objectDestroyed==1)
+            spinSpeed = 45;
+        if(objectDestroyed==2)
+            spinSpeed = 55;
+        if(objectDestroyed==3)
+            spinSpeed = 65;
+        if(objectDestroyed==4)
+            spinSpeed = 75;
+        if(objectDestroyed==5)
+            spinSpeed = 85;
+    }
+
 }

@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f0b72dff6e89c45b9d5bb540d9af62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: 0
+  spinSpeedLevel: 0
   timeLimit: 0
   newObject: 0
 --- !u!4 &1474682893
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 1514725512}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
+  m_TagString: controlLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,6 +407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels: []
+  objectsToDestroy: 5
+  leveling: {fileID: 0}
 --- !u!4 &1514725513
 Transform:
   m_ObjectHideFlags: 0
@@ -587,6 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823dfe8ac9ad4084aa70f2b6042f16cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectDestroyed: 0
   deletingObstacles: {fileID: 0}
   addingObstacles: {fileID: 0}
 --- !u!212 &2014949219

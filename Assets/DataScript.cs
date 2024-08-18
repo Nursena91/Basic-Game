@@ -13,11 +13,11 @@ public class DataScript : MonoBehaviour
     //objecttodestroy
     //time
     // Start is called before the first frame update
-    public int spinSpeed;
+    public int spinSpeedLevel;
     public bool timeLimit;
     public bool newObject;
-    public DataScript (int spinSpeed, bool timeLimit, bool newObject){
-        spinSpeed = spinSpeed;
+    public DataScript (int spinSpeedLevel, bool timeLimit, bool newObject){
+        spinSpeedLevel = spinSpeedLevel;
         timeLimit = timeLimit;
         newObject = newObject;
     }

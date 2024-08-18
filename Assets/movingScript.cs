@@ -9,8 +9,7 @@ public class movingScript : MonoBehaviour
     private Rigidbody2D rb;
     // Diğer değişkenler
     int spinSpeed = 35;
-    int objectDestroyed = 0;
-    int objectToDestroy = 5;
+    public int objectDestroyed = 0;
     Vector3 anchorPoint;
     int spinDirection = 1;
     public DestroyScript deletingObstacles;
@@ -47,7 +46,9 @@ public class movingScript : MonoBehaviour
         }
     }
 
-    private void SpeedOfMovingObject(){
+    public void SpeedOfMovingObject(){
+        if(objectDestroyed==0)
+            spinSpeed = 35;
         if(objectDestroyed==1)
             spinSpeed = 45;
         if(objectDestroyed==2)

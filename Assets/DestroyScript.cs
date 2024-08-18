@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class DestroyScript : MonoBehaviour
 {
-    public LevelScript nextlevel;
+    public LevelScript control;
+
 
     // Start is called before the first frame update
     void Start()
     {       
-        nextlevel = GameObject.FindGameObjectWithTag("countingObject").GetComponent<LevelScript>();
+        control = GameObject.FindGameObjectWithTag("controlLevel").GetComponent<LevelScript>();
     }
 
     // Update is called once per frame
@@ -19,5 +20,6 @@ public class DestroyScript : MonoBehaviour
 
     public void DestroyObject(){
         Destroy(gameObject);
+        control.isAllObjectsDestroyed();
     }
 }

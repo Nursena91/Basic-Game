@@ -17,9 +17,9 @@ public class DataScript : MonoBehaviour
     public bool timeLimit;
     public bool newObject;
     public DataScript (int spinSpeedLevel, bool timeLimit, bool newObject){
-        spinSpeedLevel = spinSpeedLevel;
-        timeLimit = timeLimit;
-        newObject = newObject;
+        this.spinSpeedLevel = spinSpeedLevel;
+        this.timeLimit = timeLimit;
+        this.newObject = newObject;
     }
 
     void Start()

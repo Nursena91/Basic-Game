@@ -8,9 +8,10 @@ using UnityEngine.SceneManagement;
 public class LevelScript : MonoBehaviour
 {
 
-
+    public Text levelText;
     public List<DataScript> levels = new List<DataScript>();
-    private int indexOfLevel = 0;
+    public static int indexOfLevel = 0;
+    public bool useBomb = false;
     public int objectsToDestroy = 5;
     public movingScript leveling;
 
@@ -18,11 +19,10 @@ public class LevelScript : MonoBehaviour
     void Start()
     {
         leveling = GameObject.FindGameObjectWithTag("countingObject").GetComponent<movingScript>();
-        levels.Add(new DataScript(35,false,false));
-        levels.Add(new DataScript(45,false,false));
+        levels.Add(new DataScript(100,false,false));
+        levels.Add(new DataScript(45,true,true));
         levels.Add(new DataScript(55,false,true));
-        levels.Add(new DataScript(65,true,false));
-        levels.Add(new DataScript(75,true,true));
+        levels.Add(new DataScript(65,true,true));
         LoadLevel(indexOfLevel);
     }
 
@@ -33,8 +33,11 @@ public class LevelScript : MonoBehaviour
     }
 
     public void LoadLevel(int index){
+        LevelNumber();
         DataScript currentLevel = levels[index];
+        //currentLevel.spinSpeedLevel = leveling.spinSpeed;
         if(currentLevel.newObject){
+            useBomb = true;
             //bomba objesini ekle
         }
         if(currentLevel.timeLimit){
@@ -53,8 +56,14 @@ public class LevelScript : MonoBehaviour
         indexOfLevel++;
         if(indexOfLevel<levels.Count){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Mevcut sahneyi yeniden yükleyerek resetle
-            LoadLevel(indexOfLevel);
         }
     }
 
+    public void FailedLevel(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Mevcut sahneyi yeniden yükleyerek resetle
+    }
+
+    public void LevelNumber() {
+        levelText.text = (indexOfLevel + 1).ToString();
+    }
 }
